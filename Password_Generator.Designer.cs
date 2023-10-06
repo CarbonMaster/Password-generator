@@ -41,6 +41,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -62,7 +63,8 @@
             this.Password_length.Location = new System.Drawing.Point(289, 10);
             this.Password_length.Name = "Password_length";
             this.Password_length.Size = new System.Drawing.Size(100, 20);
-            this.Password_length.TabIndex = 3;
+            this.Password_length.TabIndex = 1;
+            this.Password_length.TextChanged += new System.EventHandler(this.Password_length_TextChanged);
             // 
             // label2
             // 
@@ -75,21 +77,23 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "Roll the password!";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // Generated_password
             // 
-            this.Generated_password.Location = new System.Drawing.Point(53, 98);
+            this.Generated_password.Location = new System.Drawing.Point(55, 135);
             this.Generated_password.Multiline = true;
             this.Generated_password.Name = "Generated_password";
             this.Generated_password.Size = new System.Drawing.Size(306, 146);
-            this.Generated_password.TabIndex = 7;
+            this.Generated_password.TabIndex = 3;
+            this.Generated_password.TextChanged += new System.EventHandler(this.Generated_password_TextChanged);
             // 
             // label3
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.Location = new System.Drawing.Point(115, 71);
+            this.label3.Location = new System.Drawing.Point(117, 108);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(185, 24);
             this.label3.TabIndex = 6;
@@ -102,7 +106,7 @@
             this.Roll.Location = new System.Drawing.Point(250, 43);
             this.Roll.Name = "Roll";
             this.Roll.Size = new System.Drawing.Size(75, 23);
-            this.Roll.TabIndex = 8;
+            this.Roll.TabIndex = 2;
             this.Roll.Text = "Roll";
             this.Roll.UseVisualStyleBackColor = true;
             this.Roll.Click += new System.EventHandler(this.button1_Click);
@@ -112,26 +116,28 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(101, 250);
+            this.label4.Location = new System.Drawing.Point(103, 287);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(209, 24);
             this.label4.TabIndex = 9;
             this.label4.Text = "Save password to txt file";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // Pass_txt_name
             // 
-            this.Pass_txt_name.Location = new System.Drawing.Point(210, 278);
+            this.Pass_txt_name.Location = new System.Drawing.Point(212, 315);
             this.Pass_txt_name.Name = "Pass_txt_name";
             this.Pass_txt_name.Size = new System.Drawing.Size(100, 20);
-            this.Pass_txt_name.TabIndex = 10;
+            this.Pass_txt_name.TabIndex = 4;
+            this.Pass_txt_name.TextChanged += new System.EventHandler(this.Pass_txt_name_TextChanged);
             // 
             // Save_to_txt_button
             // 
-            this.Save_to_txt_button.Location = new System.Drawing.Point(166, 304);
+            this.Save_to_txt_button.Location = new System.Drawing.Point(168, 341);
             this.Save_to_txt_button.Name = "Save_to_txt_button";
             this.Save_to_txt_button.Size = new System.Drawing.Size(75, 23);
-            this.Save_to_txt_button.TabIndex = 11;
+            this.Save_to_txt_button.TabIndex = 5;
             this.Save_to_txt_button.Text = "Save";
             this.Save_to_txt_button.UseVisualStyleBackColor = true;
             this.Save_to_txt_button.Click += new System.EventHandler(this.Save_to_txt_button_Click);
@@ -141,12 +147,13 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(102, 278);
+            this.label5.Location = new System.Drawing.Point(104, 315);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Name of text file";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label1
             // 
@@ -164,6 +171,7 @@
             // 
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.panel1.Controls.Add(this.checkBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.Save_to_txt_button);
             this.panel1.Controls.Add(this.label5);
@@ -176,8 +184,20 @@
             this.panel1.Controls.Add(this.Generated_password);
             this.panel1.Location = new System.Drawing.Point(381, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(404, 347);
+            this.panel1.Size = new System.Drawing.Size(404, 380);
             this.panel1.TabIndex = 13;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(94, 84);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(223, 17);
+            this.checkBox1.TabIndex = 13;
+            this.checkBox1.Text = "Contain different symbols: ()\"@#$%^&* etc.";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
             // Password_Generator
             // 
@@ -212,6 +232,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
 
